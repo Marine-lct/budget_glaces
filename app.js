@@ -9,6 +9,8 @@ let total = price * campers * (1 + taxRate); //inclus la taxe
 
 let totalExceedsBudget = total > budget; // Si le total depasse le budget
 
+let budgetReturnText = totalExceedsBudget ? 'Vrai' : 'Faux';
+
 app.get('/', (req, res) => {
   res.send(`
     <h1>Valeurs des variables</h1>
@@ -16,7 +18,7 @@ app.get('/', (req, res) => {
     <p>Campers: ${campers}</p>
     <p>La taxe de vente est de 8 %: ${taxRate}</p>
     <p>Budget: ${budget}</p>
-    <p>Le total dépasse t'il le budget ? : ${totalExceedsBudget}</p>
+    <p>Le total dépasse t'il le budget ? : ${budgetReturnText}</p>
     <p>Total avec la taxe: ${total}</p>
   `);
 });
